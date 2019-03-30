@@ -6,3 +6,4 @@ ssh_search()
 {
 nmap -p 22 --open -sV 192.168.0.*
 }
+"ssh user@ip
