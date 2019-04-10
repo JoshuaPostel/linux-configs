@@ -14,3 +14,8 @@ filetype plugin indent on
 hi Pmenu ctermbg=black ctermfg=blue
 
 syn on
+
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
