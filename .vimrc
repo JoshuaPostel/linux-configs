@@ -24,3 +24,6 @@ map <ESC>[1;5D <C-Left>
 map <ESC>[1;5C <C-Right>
 map! <ESC>[1;5D <C-Left>
 map! <ESC>[1;5C <C-Right>
+
+cnoreabbrev Co s/^/#/
+filetype plugin indent on
