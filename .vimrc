@@ -33,3 +33,5 @@ set tabstop=4
 set shiftwidth=4
 " " On pressing tab, insert 4 spaces
 set expandtab
+
+autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
