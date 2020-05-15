@@ -18,3 +18,6 @@ autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
 
 set spelllang=en
 set pastetoggle=<F5>
+
+hi Folded ctermbg=242
+hi LineNr ctermfg=000
