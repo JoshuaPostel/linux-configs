@@ -1,3 +1,39 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+Bundle 'Valloric/YouCompleteMe'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+let g:ycm_auto_hover=''
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_auto_trigger = 0
+cnoreabbrev Aco let g:ycm_auto_trigger = 1
+map G  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+
 cnoreabbrev Co s/^/#/
 cnoreabbrev Cop s/^/#/
 cnoreabbrev Cor s/^/\/\//
@@ -15,7 +51,9 @@ set shiftwidth=4
 set expandtab
 
 autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType scala setlocal shiftwidth=2 softtabstop=2 expandtab
 
+set nu
 set spelllang=en
 set pastetoggle=<F5>
 set clipboard=unnamedplus
@@ -62,59 +100,3 @@ map gx zx
 map gz zz
 
 autocmd FileType rust setlocal foldmethod=indent
-" autocmd FileType rust setlocal foldmethod=indent
-
-" from https://github.com/narodnik/rust-fold-functions.vim
-
-" function! MakeRustFuncDefs()
-"     let b:RustFuncDefs = []
-" 
-"     let lnum = 1
-"     while lnum <= line('$')
-"         let current_line = getline(lnum)
-"         if match(current_line, '^ *\(pub \)\?fn') > -1
-"             call AddRustFunc(lnum)
-"         endif
-" 
-"         let lnum += 1
-"     endwhile
-" endfunction
-" 
-" function! AddRustFunc(lnum)
-"     let save_pos = getpos('.')
-"     call setpos('.', [0, a:lnum, 1, 0])
-" 
-"     call search('{')
-"     let start_lnum = line('.')
-" 
-"     let end_lnum = searchpair('{', '', '}', 'n')
-"     if end_lnum < 1
-"         call setpos('.', save_pos)
-"         return
-"     endif
-" 
-"     call add(b:RustFuncDefs, [start_lnum, end_lnum]);
-"     call setpos('.', save_pos)
-" endfunction
-" 
-" function! RustFold()
-"     if !exists("b:RustFuncDefs")
-"         call MakeRustFuncDefs()
-"     endif
-" 
-"     for [start_lnum, end_lnum] in b:RustFuncDefs
-"         if start_lnum > v:lnum
-"             return 0
-"         endif
-" 
-"         if v:lnum == start_lnum + 1
-"             return ">1"
-"         elseif v:lnum == end_lnum
-"             return "<1"
-"         elseif v:lnum > start_lnum && v:lnum < end_lnum
-"             return "="
-"         endif
-"     endfor
-" endfunction
-" 
-" autocmd FileType rust setlocal foldmethod=expr foldexpr=RustFold()
