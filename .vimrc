@@ -32,6 +32,7 @@ let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_auto_trigger = 0
 cnoreabbrev Aco let g:ycm_auto_trigger = 1
 map G  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+highlight clear SignColumn
 
 
 cnoreabbrev Co s/^/#/
