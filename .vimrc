@@ -70,3 +70,6 @@ map fc zc
 map fC zC
 map fo zo
 map fO zO
+
+autocmd FileType yaml setlocal foldmethod=indent
+autocmd FileType yaml setlocal sw=2
