@@ -59,45 +59,14 @@ set spelllang=en
 set pastetoggle=<F5>
 set clipboard=unnamedplus
 
+set foldlevel=4
+set nofoldenable
+set foldmethod=syntax
+
 hi Folded ctermbg=242
 hi LineNr ctermfg=000
 
-map gA zA
-map gC zc
-map gD zD
-map gE zE
-map gF zF
-map gG zG
-map gH zH
-map gL zL
-map gM zm
-map gN zN
-map gO zo
-map gR zr
-map gW zW
-map gX zX
-map g^ z^
-map ga za
-map gb zb
-map gc zC
-map gd zd
-map ge ze
-map gf zf
-map gg zg
-map gh zh
-map gi zi
-map gj zj
-map gk zk
-map gl zl
-map gm zM
-map gn zn
-map go zO
-map gr zR
-map gs zs
-map gt zt
-map gv zv
-map gw zw
-map gx zx
-map gz zz
-
-autocmd FileType rust setlocal foldmethod=indent
+map fc zc
+map fC zC
+map fo zo
+map fO zO
