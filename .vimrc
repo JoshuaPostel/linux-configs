@@ -34,6 +34,8 @@ cnoreabbrev Aco let g:ycm_auto_trigger = 1
 map G  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 highlight clear SignColumn
 
+let g:ycm_enable_diagnostic_highlighting = 0
+
 
 cnoreabbrev Co s/^/#/
 cnoreabbrev Cop s/^/#/
