@@ -33,6 +33,14 @@ colorscheme gruvbox
 cnoreabbrev Cop s/^/#/ <bar> nohl
 cnoreabbrev Cor s/^/\/\// <bar> nohl
 
+" autocomplete off by default and shortcut commands to turn on and off
+cnoreabbrev Acoff lua require('cmp').setup.buffer { enabled = false }
+cnoreabbrev Acon lua require('cmp').setup.buffer { enabled = true }
+
+lua <<EOF
+require('cmp').setup.buffer { enabled = false }
+EOF
+
 " Set completeopt to have a better completion experience
 " :help completeopt
 " menuone: popup even when there's only one match
