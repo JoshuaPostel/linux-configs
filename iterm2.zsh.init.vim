@@ -55,6 +55,18 @@ cnoreabbrev Td call CocAction('diagnosticToggle')
 cnoreabbrev Acoff lua require('cmp').setup.buffer { enabled = false }
 cnoreabbrev Acon lua require('cmp').setup.buffer { enabled = true }
 
+set updatetime=300
+""inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+""inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+
 lua <<EOF
 require('cmp').setup.buffer { enabled = false }
 EOF
